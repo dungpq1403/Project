@@ -44,7 +44,24 @@ const pizzaData = [
     },
   ];
 
-export default function Pizza() {
+export function Header() {
+  return <h1>Fast React Pizza Co.</h1>
+}
+
+export function Menu() {
+  return <h2>Our Menu</h2>
+}
+
+export function Footer() {
+  const hour = new Date().getHours();
+  const openHour = 12;
+  const closedHour = 22;
+
+  const isOpened = (hour >= openHour && hour < closedHour) ? "We're currently open!" : "We're currently closed!";
+  return <footer>{new Date().toLocaleTimeString()}. {isOpened}</footer>
+}
+
+export function Pizza() {
   return (
     <div>
        <img src={pizzaData[0].photoName} alt={pizzaData[0].name} />
